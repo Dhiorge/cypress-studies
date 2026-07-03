@@ -1,50 +1,62 @@
 # cypress-studies
 Estudos e exercícios de Cypress
 
-## 🔐 Login Test Automation
+<h2 align="center">🔐 Login Test Automation</h2>
 
-This test suite validates the authentication flow of the application using Cypress, covering both positive and negative scenarios to ensure the login functionality behaves as expected.
+<p align="center">
+Automated end-to-end authentication tests developed with <strong>Cypress</strong>, validating both positive and negative login scenarios while ensuring application stability and user authentication reliability.
+</p>
 
-### 🎯 Test Scenarios
+---
 
-| Test Case | Expected Result | Status |
-|-----------|-----------------|--------|
-| Valid Login | User is successfully authenticated and redirected to the application | ✅ Passed |
-| Invalid Password | Authentication is denied and an error message is displayed | ✅ Passed |
-| Invalid Email | Authentication is denied and an error message is displayed | ✅ Passed |
+<h3>🎯 Test Coverage</h3>
 
-### ✅ Validations Performed
+<table>
+<tr>
+<th>Scenario</th>
+<th>Validation</th>
+<th>Status</th>
+</tr>
 
-#### Successful Login
-- Opens the application.
-- Submits valid user credentials.
-- Confirms the authenticated user's name is displayed.
-- Verifies the welcome message after login.
-- Ensures all expected elements are visible.
+<tr>
+<td>✅ Valid Login</td>
+<td>User is successfully authenticated and redirected to the application.</td>
+<td>✔ Passed</td>
+</tr>
 
-#### Invalid Password
-- Attempts authentication with a valid email and an incorrect password.
-- Verifies that access is denied.
-- Confirms the error message is visible.
+<tr>
+<td>❌ Invalid Password</td>
+<td>System denies authentication and displays an access denied message.</td>
+<td>✔ Passed</td>
+</tr>
 
-#### Invalid Email
-- Attempts authentication with an invalid email and a valid password.
-- Verifies that access is denied.
-- Confirms the error message is visible.
+<tr>
+<td>❌ Invalid Email</td>
+<td>System denies authentication and displays an access denied message.</td>
+<td>✔ Passed</td>
+</tr>
 
-### 🛠 QA Approach
+</table>
 
-This test suite follows common Quality Assurance practices by validating:
+---
 
-- Positive authentication flow.
-- Negative authentication scenarios.
-- UI element visibility.
-- Text content assertions.
-- User feedback validation.
-- Authentication reliability.
-- Regression coverage for the login feature.
+<h3>🧪 QA Validations</h3>
 
-### 📌 Cypress Assertions Used
+<ul>
+<li>✔ Authentication using valid credentials</li>
+<li>✔ Authentication using invalid password</li>
+<li>✔ Authentication using invalid email</li>
+<li>✔ User information validation</li>
+<li>✔ Welcome message validation</li>
+<li>✔ Authentication error handling</li>
+<li>✔ Visibility assertions</li>
+<li>✔ Text content assertions</li>
+<li>✔ End-to-End Login Flow</li>
+</ul>
+
+---
+
+<h3>⚙ Cypress Assertions</h3>
 
 ```javascript
 .should('be.visible')
@@ -52,19 +64,79 @@ This test suite follows common Quality Assurance practices by validating:
 cy.contains()
 ```
 
-### 📊 Test Coverage
+---
 
-- ✅ Login with valid credentials
-- ✅ Login with invalid password
-- ✅ Login with invalid email
-- ✅ User information validation
-- ✅ Welcome message validation
-- ✅ Error message validation
-- ✅ UI visibility checks
+<h3>📋 Test Flow</h3>
+
+```text
+Launch Application
+        │
+        ▼
+ Submit Credentials
+        │
+        ▼
+ ┌───────────────┐
+ │ Credentials ? │
+ └───────┬───────┘
+         │
+  ┌──────┴──────┐
+  ▼             ▼
+Valid         Invalid
+  │             │
+  ▼             ▼
+Validate     Validate
+Dashboard    Error Message
+```
 
 ---
 
-**Objective:** Ensure the authentication feature remains stable, reliable, and resilient against invalid login attempts while providing consistent feedback to the user.
+<h3>📊 Automation Checklist</h3>
+
+- ✅ Functional Testing
+- ✅ UI Validation
+- ✅ Authentication Testing
+- ✅ Negative Testing
+- ✅ Positive Testing
+- ✅ Regression Ready
+- ✅ End-to-End Automation
+- ✅ Smoke Test Coverage
+
+---
+
+<h3>🛠 Tech Stack</h3>
+
+<p>
+
+<img src="https://img.shields.io/badge/Cypress-Automation-69D3A7?style=for-the-badge&logo=cypress&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+
+<img src="https://img.shields.io/badge/QA-Testing-blue?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/E2E-Tests-success?style=for-the-badge"/>
+
+</p>
+
+---
+
+<h3>🎯 Objective</h3>
+
+<blockquote>
+
+Ensure the login functionality remains stable by validating successful authentication, handling invalid credential attempts, and verifying that the application consistently provides accurate user feedback through automated End-to-End testing.
+
+</blockquote>
+
+---
+
+<div align="center">
+
+### 🚀 Test Status
+
+🟢 **All Login Scenarios Passed Successfully**
+
+</div>
+
 <img width="1896" height="1001" alt="Login Test  Successful Authentication  Passed" src="https://github.com/user-attachments/assets/9bbac596-defd-41c8-949c-6f2bf4f2c6f2" />
 
 
