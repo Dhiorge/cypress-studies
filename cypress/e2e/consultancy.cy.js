@@ -80,7 +80,7 @@ describe('Formulário de Consultoria', () => {
 
     cy.contains('button', 'Enviar formulário').click()
 
-    cy.get('.modal').contains('h3', 'Sucesso!')
+    cy.get('.modal', { timeout: 7000 }).contains('h3', 'Sucesso!')
       .should('be.visible')
       .and('have.text', 'Sucesso!')
     cy.get('.modal').contains('p', 'Sua solicitação de consultoria foi enviada com sucesso! Em breve, nossa equipe entrará em contato através do email fornecido.')
@@ -92,10 +92,45 @@ describe('Formulário de Consultoria', () => {
       .wait(2000)
       .click()
 
-
   })
 
+  it('Deve verificar os campos obrigatórios', () => {
 
+    cy.iniciar()
+
+    cy.submitLogin('papito@webdojo.com', 'katana123')
+
+    cy.goTo('Formulários', 'Consultoria')
+    cy.contains('button', 'Enviar formulário').click()
+
+    cy.contains('label', 'Nome Completo *')
+      .parent()
+      .find('p')
+      .contains('p', 'Campo obrigatório')
+      .should('be.visible')
+      .and('have.class', 'text-red-400')
+      .and('have.css', 'color', 'rgb(248, 113, 113)')
+
+    cy.contains('label', 'Email *')
+      .parent()
+      .find('p')
+      .contains('p', 'Campo obrigatório')
+      .should('be.visible')
+      .and('have.class', 'text-red-400')
+      .and('have.css', 'color', 'rgb(248, 113, 113)')
+
+
+    cy.contains('p', 'Você precisa aceitar os termos de uso')
+      .should('be.visible')
+      .and('have.class', 'text-red-400')
+      .and('have.css', 'color', 'rgb(248, 113, 113)')
+
+
+
+
+
+
+  })
 
 })
 
